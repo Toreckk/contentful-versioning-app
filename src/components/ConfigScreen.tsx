@@ -59,8 +59,8 @@ const ConfigScreen = (props: ConfigScreenProps) => {
   return (
     <Workbench className={styles.Container}>
       <Form>
-        <Heading>App Config</Heading>
-        <Paragraph>Welcome to your contentful app. This is your config page.</Paragraph>
+        <Heading>Versioning Test App</Heading>
+        <Paragraph>App created for testing purposes to show changes between different versions.</Paragraph>
       </Form>
     </Workbench>
   );

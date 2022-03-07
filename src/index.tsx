@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { createClient } from 'contentful-management';
 
@@ -25,6 +25,7 @@ import Sidebar from './components/Sidebar';
 import Field from './components/Field';
 import Dialog from './components/Dialog';
 import LocalhostWarning from './components/LocalhostWarning';
+import { GlobalStyles } from '@contentful/f36-components';
 
 if (process.env.NODE_ENV === 'development' && window.self === window.top) {
   // You can remove this if block before deploying your app
@@ -82,7 +83,12 @@ if (process.env.NODE_ENV === 'development' && window.self === window.top) {
     // Select a component depending on a location in which the app is rendered.
     ComponentLocationSettings.forEach((componentLocationSetting) => {
       if (sdk.location.is(componentLocationSetting.location)) {
-        render(componentLocationSetting.component, root);
+        render(
+          <>
+            <GlobalStyles />
+            {componentLocationSetting.component}
+          </>, root
+        );
       }
     });
   });
